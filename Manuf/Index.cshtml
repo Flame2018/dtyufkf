@@ -1,0 +1,48 @@
+﻿@page
+@model CRUD3._0.Pages.Manuf.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturers[0].Mname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturers[0].Mqty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturers[0].Myear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Manufacturers) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mqty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Myear)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
